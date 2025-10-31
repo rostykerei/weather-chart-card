@@ -18148,11 +18148,20 @@ class WeatherChartCard extends s {
             return;
         }
 
-        /*this.forecastSubscriber = this._hass.connection.subscribeMessage(callback, {
+        const callback = (event) => {
+            this.forecasts = event.forecast;
+
+            console.log('updated', event);
+
+            this.requestUpdate();
+            this.drawChart();
+        };
+
+        this.forecastSubscriber = this._hass.connection.subscribeMessage(callback, {
             type: "weather/subscribe_forecast",
             forecast_type: isHourly ? 'hourly' : 'daily',
             entity_id: this.config.entity,
-        });*/
+        });
     }
 
     supportsFeature(feature) {

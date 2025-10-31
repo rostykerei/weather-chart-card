@@ -195,11 +195,11 @@ class WeatherChartCard extends LitElement {
             this.drawChart();
         };
 
-        /*this.forecastSubscriber = this._hass.connection.subscribeMessage(callback, {
+        this.forecastSubscriber = this._hass.connection.subscribeMessage(callback, {
             type: "weather/subscribe_forecast",
             forecast_type: isHourly ? 'hourly' : 'daily',
             entity_id: this.config.entity,
-        });*/
+        });
     }
 
     supportsFeature(feature) {

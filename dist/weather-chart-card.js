@@ -18150,6 +18150,9 @@ class WeatherChartCard extends s {
 
         const callback = (event) => {
             this.forecasts = event.forecast;
+
+            console.log('updated', event);
+
             this.requestUpdate();
             this.drawChart();
         };

@@ -436,12 +436,17 @@ class WeatherChartCard extends LitElement {
                 now.getMonth(),
                 now.getDate(),
                 now.getHours() + 1,
+                0, 0, 0
             );
+
+            let delay = nextHour - now;
+
             this.autoscrollTimeout = setTimeout(() => {
                 this.autoscrollTimeout = null;
                 this.updateChart();
-                drawChartOncePerHour();
-            }, nextHour - now);
+                this.drawChart();
+                updateChartOncePerHour();
+            }, delay);
         };
 
         updateChartOncePerHour();

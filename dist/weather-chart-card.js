@@ -18150,9 +18150,6 @@ class WeatherChartCard extends s {
 
         const callback = (event) => {
             this.forecasts = event.forecast;
-
-            console.log('updated', event);
-
             this.requestUpdate();
             this.drawChart();
         };
@@ -18408,6 +18405,7 @@ class WeatherChartCard extends s {
 
             this.autoscrollTimeout = setTimeout(() => {
                 this.autoscrollTimeout = null;
+                this.requestUpdate();
                 this.updateChart();
                 this.drawChart();
                 updateChartOncePerHour();

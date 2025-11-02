@@ -188,9 +188,6 @@ class WeatherChartCard extends LitElement {
 
         const callback = (event) => {
             this.forecasts = event.forecast;
-
-            console.log('updated', event);
-
             this.requestUpdate();
             this.drawChart();
         };
@@ -446,6 +443,7 @@ class WeatherChartCard extends LitElement {
 
             this.autoscrollTimeout = setTimeout(() => {
                 this.autoscrollTimeout = null;
+                this.requestUpdate();
                 this.updateChart();
                 this.drawChart();
                 updateChartOncePerHour();

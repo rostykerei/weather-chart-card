@@ -19178,12 +19178,7 @@ class WeatherChartCard extends s {
                 ` : ''}
                 ${((showSun && sun !== undefined) || (typeof uv_index !== 'undefined' && uv_index !== undefined)) ? x`
                     <div>
-                        ${typeof uv_index !== 'undefined' && uv_index !== undefined ? x`
-                            <div>
-                                <ha-icon icon="hass:white-balance-sunny"></ha-icon>
-                                UV: ${Math.round(uv_index * 10) / 10}
-                            </div>
-                        ` : ''}
+                        ${''}
                         ${showSun && sun !== undefined ? x`
                             <div>
                                 ${this.renderSun({sun, language})}
